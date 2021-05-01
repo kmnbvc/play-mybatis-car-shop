@@ -14,4 +14,3 @@ public interface PostRepository {
 
     CompletionStage<Optional<PostData>> update(Long id, PostData postData);
 }
-

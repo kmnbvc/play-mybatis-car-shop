@@ -1,8 +1,5 @@
 package v1.post;
 
-/**
- * Resource for the API.  This is a presentation class for frontend work.
- */
 public class PostResource {
     private String id;
     private String link;

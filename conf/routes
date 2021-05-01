@@ -1,3 +1,5 @@
-GET     /                           controllers.HomeController.index
+GET         /v1/brands              v1.brand.BrandController.list()
+GET         /v1/brands/:name        v1.brand.BrandController.get(name)
 
-->     /v1/posts                    posts.Routes
+POST        /v1/brands              v1.brand.BrandController.create(request: Request)
+PUT         /v1/brands/:name        v1.brand.BrandController.update(request: Request, name)

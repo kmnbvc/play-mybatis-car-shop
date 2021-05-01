@@ -10,9 +10,6 @@ import java.util.Optional;
 import java.util.concurrent.CompletionStage;
 import java.util.stream.Stream;
 
-/**
- * Handles presentation of Post resources, which map to JSON.
- */
 public class PostResourceHandler {
 
     private final PostRepository repository;
