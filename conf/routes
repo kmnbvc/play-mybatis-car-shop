@@ -1,5 +1,14 @@
+# brand
 GET         /v1/brands              v1.brand.BrandController.list()
 GET         /v1/brands/:name        v1.brand.BrandController.get(name)
 
 POST        /v1/brands              v1.brand.BrandController.create(request: Request)
 PUT         /v1/brands/:name        v1.brand.BrandController.update(request: Request, name)
+
+
+# model
+GET         /v1/models              v1.brand.BrandController.list()
+GET         /v1/models/:name        v1.brand.BrandController.get(name)
+
+POST        /v1/models              v1.brand.BrandController.create(request: Request)
+PUT         /v1/models/:name        v1.brand.BrandController.update(request: Request, name)
