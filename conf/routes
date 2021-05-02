@@ -21,3 +21,6 @@ GET           /v1/positions/:id        v1.position.PositionController.get(id: ja
 POST          /v1/positions            v1.position.PositionController.create(request: Request)
 PUT           /v1/positions/:id        v1.position.PositionController.update(request: Request, id: java.util.UUID)
 DELETE        /v1/positions/:id        v1.position.PositionController.delete(id: java.util.UUID)
+
+# search positions
+GET           /v1/search               v1.search.SearchController.search(c: v1.search.SearchCriteria)

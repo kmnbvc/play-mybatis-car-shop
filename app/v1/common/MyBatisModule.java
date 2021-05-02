@@ -7,6 +7,7 @@ import play.db.Database;
 import v1.brand.BrandMapper;
 import v1.model.ModelMapper;
 import v1.position.PositionMapper;
+import v1.search.SearchMapper;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
@@ -28,7 +29,7 @@ public class MyBatisModule extends org.mybatis.guice.MyBatisModule {
         addSimpleAlias(UUIDTypeHandler.class);
         addSimpleAlias(UUID.class);
         addSimpleAlias(Year.class);
-        addMapperClasses(List.of(BrandMapper.class, ModelMapper.class, PositionMapper.class));
+        addMapperClasses(List.of(BrandMapper.class, ModelMapper.class, PositionMapper.class, SearchMapper.class));
     }
 
     @Singleton

@@ -1,0 +1,19 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="v1.search.SearchMapper">
+
+    <select id="search" resultType="v1.search.SearchResult">
+
+select brand_name as brandName,
+               model_name as modelName,
+               year_of_manufacture as yearOfManufacture,
+               run,
+               price
+        from positions
+        where
+            (brand_name = #{criteria.brandName} or #{criteria.brandName} is null) and
+            (model_name = #{criteria.modelName} or #{criteria.modelName} is null) and
+            (price &lt;= #{criteria.priceMax} or #{criteria.priceMax} is null) and
+            (price >= #{criteria.priceMin} or #{criteria.priceMin} is null)
+   </select>
+</mapper>
