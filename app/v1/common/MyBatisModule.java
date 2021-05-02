@@ -4,11 +4,14 @@ package v1.common;
 import com.google.inject.name.Names;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import play.db.Database;
+import v1.brand.BrandMapper;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
 import javax.inject.Singleton;
 import javax.sql.DataSource;
+import java.util.List;
+import java.util.UUID;
 
 public class MyBatisModule extends org.mybatis.guice.MyBatisModule {
 
@@ -18,10 +21,10 @@ public class MyBatisModule extends org.mybatis.guice.MyBatisModule {
         bindConstant().annotatedWith(Names.named("mybatis.configuration.failFast")).to(true);
         bindDataSourceProviderType(PlayDataSourceProvider.class);
         bindTransactionFactoryType(JdbcTransactionFactory.class);
-//        addTypeHandlerClass(UUIDTypeHandler.class);
-//        addSimpleAlias(UUIDTypeHandler.class);
-//        addSimpleAlias(UUID.class);
-//        addMapperClasses(TFileSystem.class.getPackage().getName());
+        addTypeHandlerClass(UUIDTypeHandler.class);
+        addSimpleAlias(UUIDTypeHandler.class);
+        addSimpleAlias(UUID.class);
+        addMapperClasses(List.of(BrandMapper.class));
     }
 
     @Singleton

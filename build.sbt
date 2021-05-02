@@ -5,6 +5,7 @@ lazy val root = (project in file("."))
     version := "2.8.x",
     scalaVersion := "2.13.5",
     libraryDependencies ++= Seq(
+      evolutions,
       javaJdbc,
       guice,
       "com.h2database" % "h2" % "1.4.199",

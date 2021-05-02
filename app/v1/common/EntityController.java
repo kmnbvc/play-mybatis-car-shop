@@ -45,6 +45,6 @@ public abstract class EntityController<T, ID> extends Controller {
     }
 
     public CompletionStage<Result> delete(ID id) {
-        return repository.delete(id).thenApplyAsync(result -> result.map(value -> ok(Json.toJson(value))).orElseGet(Results::notFound), ec.current());
+        return repository.delete(id).thenApplyAsync(result -> result ? ok() : notFound(), ec.current());
     }
 }

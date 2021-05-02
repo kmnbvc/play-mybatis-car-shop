@@ -1,14 +1,9 @@
 package v1.position;
 
-import v1.brand.Brand;
-import v1.model.Model;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import java.time.Year;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 import java.util.stream.Stream;
 
@@ -24,7 +19,7 @@ public class DbPositionRepository implements PositionRepository {
 
     @Override
     public CompletionStage<Stream<Position>> list() {
-        return CompletableFuture.completedStage(Stream.of(new Position(new Brand("vaz", "ru"), new Model("210045", Year.of(2222), null), Year.of(2221), 123, 45535)));
+        return null;
     }
 
     @Override
@@ -43,7 +38,7 @@ public class DbPositionRepository implements PositionRepository {
     }
 
     @Override
-    public CompletionStage<Optional<Position>> delete(UUID uuid) {
+    public CompletionStage<Boolean> delete(UUID uuid) {
         return null;
     }
 }

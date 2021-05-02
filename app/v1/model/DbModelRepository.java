@@ -22,17 +22,22 @@ public class DbModelRepository implements ModelRepository {
     }
 
     @Override
-    public CompletionStage<Model> create(Model model) {
+    public CompletionStage<Model> create(Model entity) {
         return null;
     }
 
     @Override
-    public CompletionStage<Optional<Model>> get(String name) {
+    public CompletionStage<Optional<Model>> get(String s) {
         return null;
     }
 
     @Override
-    public CompletionStage<Optional<Model>> update(String name, Model model) {
+    public CompletionStage<Optional<Model>> update(String s, Model entity) {
+        return null;
+    }
+
+    @Override
+    public CompletionStage<Boolean> delete(String s) {
         return null;
     }
 }

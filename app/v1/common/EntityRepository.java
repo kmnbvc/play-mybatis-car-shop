@@ -9,5 +9,5 @@ public interface EntityRepository<T, ID> {
     CompletionStage<T> create(T entity);
     CompletionStage<Optional<T>> get(ID id);
     CompletionStage<Optional<T>> update(ID id, T entity);
-    CompletionStage<Optional<T>> delete(ID id);
+    CompletionStage<Boolean> delete(ID id);
 }
