@@ -8,6 +8,6 @@ import javax.inject.Inject;
 public class ModelExecutionContext extends CustomExecutionContext {
     @Inject
     public ModelExecutionContext(ActorSystem actorSystem) {
-        super(actorSystem, "model.repository");
+        super(actorSystem, "database.dispatcher");
     }
 }

@@ -1,4 +1,78 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="v1.position.PositionMapper">
+    <select id="list" resultMap="positionMap">
+        select id,
+               b.name as brand_name,
+               b.country as brand_country,
+               m.name as model_name,
+               m.year_manufacture_began as model_year_manufacture_began,
+               m.year_manufacture_ended as model_year_manufacture_ended,
+               year_of_manufacture,
+               run,
+               price
+        from positions
+            inner join brands b on brand_name = b.name
+            inner join models m on model_name = m.name
+    </select>
+
+    <select id="get" resultMap="positionMap">
+        select  id,
+                b.name as brand_name,
+                b.country as brand_country,
+                m.name as model_name,
+                m.year_manufacture_began as model_year_manufacture_began,
+                m.year_manufacture_ended as model_year_manufacture_ended,
+                year_of_manufacture,
+                run,
+                price
+        from positions
+            inner join brands b on brand_name = b.name
+            inner join models m on model_name = m.name
+        where id = #{id,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler}
+    </select>
+
+    <insert id="insert" parameterType="v1.position.Position">
+        insert into positions (id, brand_name, model_name, year_of_manufacture, run, price)
+        values (#{entity.id,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler}, #{entity.brand.name}, #{entity.model.name}, #{entity.yearOfManufacture}, #{entity.run}, #{entity.price})
+    </insert>
+
+    <update id="update" parameterType="v1.position.Position">
+        update positions
+        set
+            brand_name = #{entity.brand.name},
+            model_name = #{entity.model.name},
+            year_of_manufacture = #{entity.yearOfManufacture},
+            run = #{entity.run},
+            price = #{entity.price}
+        where id = #{id,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler}
+    </update>
+
+    <delete id="delete">
+        delete from positions where id = #{id,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler}
+    </delete>
+
+    <resultMap id="brandMap" type="v1.brand.Brand">
+        <constructor>
+            <idArg column="name" javaType="String"/>
+            <arg column="country" javaType="String"/>
+        </constructor>
+    </resultMap>
+
+    <resultMap id="modelMap" type="v1.model.Model">
+        <constructor>
+            <idArg column="name" javaType="String"/>
+            <arg column="year_manufacture_began" javaType="Year"/>
+            <arg column="year_manufacture_ended" javaType="Year"/>
+        </constructor>
+    </resultMap>
+
+    <resultMap id="positionMap" type="v1.position.Position">
+        <id javaType="UUID" column="id" property="id"/>
+        <result property="yearOfManufacture" column="year_of_manufacture"/>
+        <result property="run" column="run"/>
+        <result property="price" column="price"/>
+        <association property="brand" javaType="v1.brand.Brand" columnPrefix="brand_" resultMap="brandMap"/>
+        <association property="model" javaType="v1.model.Model" columnPrefix="model_" resultMap="modelMap"/>
+    </resultMap>
 </mapper>

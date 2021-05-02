@@ -5,9 +5,11 @@ import v1.model.Model;
 
 import java.time.Year;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Position {
 
+    private UUID id;
     private Brand brand;
     private Model model;
     private Year yearOfManufacture;
@@ -17,12 +19,21 @@ public class Position {
     public Position() {
     }
 
-    public Position(Brand brand, Model model, Year yearOfManufacture, int run, int price) {
+    public Position(UUID id, Brand brand, Model model, Year yearOfManufacture, int run, int price) {
+        this.id = id;
         this.brand = brand;
         this.model = model;
         this.yearOfManufacture = yearOfManufacture;
         this.run = run;
         this.price = price;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public Brand getBrand() {
@@ -70,18 +81,19 @@ public class Position {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Position position = (Position) o;
-        return run == position.run && price == position.price && Objects.equals(brand, position.brand) && Objects.equals(model, position.model) && Objects.equals(yearOfManufacture, position.yearOfManufacture);
+        return run == position.run && price == position.price && Objects.equals(id, position.id) && Objects.equals(brand, position.brand) && Objects.equals(model, position.model) && Objects.equals(yearOfManufacture, position.yearOfManufacture);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, model, yearOfManufacture, run, price);
+        return Objects.hash(id, brand, model, yearOfManufacture, run, price);
     }
 
     @Override
     public String toString() {
         return "Position{" +
-                "brand=" + brand +
+                "id=" + id +
+                ", brand=" + brand +
                 ", model=" + model +
                 ", yearOfManufacture=" + yearOfManufacture +
                 ", run=" + run +

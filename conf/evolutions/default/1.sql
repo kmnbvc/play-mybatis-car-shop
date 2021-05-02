@@ -3,7 +3,7 @@
 -- !Ups
 
 CREATE DOMAIN year_int AS smallint
-    CHECK(VALUE >= 0 AND VALUE <= 9999);
+    CHECK(VALUE >= 1900 AND VALUE <= 9999);
 
 CREATE TABLE IF NOT EXISTS brands (
                         name varchar(64) NOT NULL,

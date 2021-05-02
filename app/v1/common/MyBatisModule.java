@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import javax.inject.Provider;
 import javax.inject.Singleton;
 import javax.sql.DataSource;
+import java.time.Year;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,6 +27,7 @@ public class MyBatisModule extends org.mybatis.guice.MyBatisModule {
         addTypeHandlerClass(UUIDTypeHandler.class);
         addSimpleAlias(UUIDTypeHandler.class);
         addSimpleAlias(UUID.class);
+        addSimpleAlias(Year.class);
         addMapperClasses(List.of(BrandMapper.class, ModelMapper.class, PositionMapper.class));
     }
 
