@@ -77,4 +77,15 @@ public class Position {
     public int hashCode() {
         return Objects.hash(brand, model, yearOfManufacture, run, price);
     }
+
+    @Override
+    public String toString() {
+        return "Position{" +
+                "brand=" + brand +
+                ", model=" + model +
+                ", yearOfManufacture=" + yearOfManufacture +
+                ", run=" + run +
+                ", price=" + price +
+                '}';
+    }
 }

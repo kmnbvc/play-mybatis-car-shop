@@ -12,7 +12,7 @@ GET           /v1/models/:name         v1.model.ModelController.get(name)
 
 POST          /v1/models               v1.model.ModelController.create(request: Request)
 PUT           /v1/models/:name         v1.model.ModelController.update(request: Request, name)
-DELETE        /v1/models/:name         v1.model.ModelController.delete(request: Request, name)
+DELETE        /v1/models/:name         v1.model.ModelController.delete(name)
 
 # position
 GET           /v1/positions            v1.position.PositionController.list()

@@ -6,16 +6,16 @@ import java.util.Objects;
 public class Model {
 
     private String name;
-    private Year introduced;
-    private Year closed;
+    private Year yearManufactureBegan;
+    private Year yearManufactureEnded;
 
     public Model() {
     }
 
-    public Model(String name, Year introduced, Year closed) {
+    public Model(String name, Year yearManufactureBegan, Year yearManufactureEnded) {
         this.name = name;
-        this.introduced = introduced;
-        this.closed = closed;
+        this.yearManufactureBegan = yearManufactureBegan;
+        this.yearManufactureEnded = yearManufactureEnded;
     }
 
     public String getName() {
@@ -26,20 +26,20 @@ public class Model {
         this.name = name;
     }
 
-    public Year getIntroduced() {
-        return introduced;
+    public Year getYearManufactureBegan() {
+        return yearManufactureBegan;
     }
 
-    public void setIntroduced(Year introduced) {
-        this.introduced = introduced;
+    public void setYearManufactureBegan(Year yearManufactureBegan) {
+        this.yearManufactureBegan = yearManufactureBegan;
     }
 
-    public Year getClosed() {
-        return closed;
+    public Year getYearManufactureEnded() {
+        return yearManufactureEnded;
     }
 
-    public void setClosed(Year closed) {
-        this.closed = closed;
+    public void setYearManufactureEnded(Year yearManufactureEnded) {
+        this.yearManufactureEnded = yearManufactureEnded;
     }
 
     @Override
@@ -47,11 +47,20 @@ public class Model {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Model model = (Model) o;
-        return Objects.equals(name, model.name) && Objects.equals(introduced, model.introduced) && Objects.equals(closed, model.closed);
+        return Objects.equals(name, model.name) && Objects.equals(yearManufactureBegan, model.yearManufactureBegan) && Objects.equals(yearManufactureEnded, model.yearManufactureEnded);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, introduced, closed);
+        return Objects.hash(name, yearManufactureBegan, yearManufactureEnded);
+    }
+
+    @Override
+    public String toString() {
+        return "Model{" +
+                "name='" + name + '\'' +
+                ", yearManufactureBegan=" + yearManufactureBegan +
+                ", yearManufactureEnded=" + yearManufactureEnded +
+                '}';
     }
 }

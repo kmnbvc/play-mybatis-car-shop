@@ -1,0 +1,35 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="v1.model.ModelMapper">
+    <select id="list" resultType="v1.model.Model">
+        select name,
+               year_manufacture_began as yearManufactureBegan,
+               year_manufacture_ended as yearManufactureEnded
+        from models
+    </select>
+
+    <select id="get" resultType="v1.model.Model">
+        select name,
+               year_manufacture_began as yearManufactureBegan,
+               year_manufacture_ended as yearManufactureEnded
+        from models where name = #{id}
+    </select>
+
+    <insert id="insert" parameterType="v1.model.Model">
+        insert into models (name, year_manufacture_began, year_manufacture_ended)
+        values (#{entity.name}, #{entity.yearManufactureBegan}, #{entity.yearManufactureEnded})
+    </insert>
+
+    <update id="update" parameterType="v1.model.Model">
+        update models
+        set
+            name = #{entity.name},
+            year_manufacture_began = #{entity.yearManufactureBegan},
+            year_manufacture_ended = #{entity.yearManufactureEnded}
+        where name = #{id}
+    </update>
+
+    <delete id="delete">
+        delete from models where name = #{id}
+    </delete>
+</mapper>

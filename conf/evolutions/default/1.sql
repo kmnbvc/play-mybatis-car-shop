@@ -2,7 +2,7 @@
 
 -- !Ups
 
-CREATE DOMAIN year_int AS int2
+CREATE DOMAIN year_int AS smallint
     CHECK(VALUE >= 0 AND VALUE <= 9999);
 
 CREATE TABLE IF NOT EXISTS brands (

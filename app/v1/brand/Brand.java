@@ -43,4 +43,12 @@ public class Brand {
     public int hashCode() {
         return Objects.hash(name, country);
     }
+
+    @Override
+    public String toString() {
+        return "Brand{" +
+                "name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }

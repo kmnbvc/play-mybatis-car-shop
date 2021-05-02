@@ -6,18 +6,18 @@
     </select>
 
     <select id="get" resultType="v1.brand.Brand">
-        select name, country from brands where name = #{name}
+        select name, country from brands where name = #{id}
     </select>
 
     <insert id="insert" parameterType="v1.brand.Brand">
-        insert into brands (name, country) VALUES (#{brand.name}, #{brand.country})
+        insert into brands (name, country) VALUES (#{entity.name}, #{entity.country})
     </insert>
 
     <update id="update" parameterType="v1.brand.Brand">
-        update brands set name = #{brand.name}, country = #{brand.country} where name = #{name}
+        update brands set name = #{entity.name}, country = #{entity.country} where name = #{id}
     </update>
 
     <delete id="delete">
-        delete from brands where name = #{name}
+        delete from brands where name = #{id}
     </delete>
 </mapper>
